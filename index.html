@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>📚 Library Management System</h1>
+
+    <!-- Top Controls -->
+    <div class="top">
+        <input type="text" id="search" placeholder="Search book / author / ID" onkeyup="searchBook()">
+
+        <select onchange="filterBooks(this.value)">
+            <option value="All">All</option>
+            <option value="Available">Available</option>
+            <option value="Issued">Issued</option>
+        </select>
+
+        <button onclick="sortByName()">Sort Name</button>
+        <button onclick="sortByCategory()">Sort Category</button>
+        <button id="darkModeBtn"
+        onclick="toggleDark()">🌙Dark Mode</button>
+    </div>
+
+    <!-- Book Form -->
+    <div class="form">
+        <input type="text" id="bookName" placeholder="Book Name">
+        <input type="text" id="author" placeholder="Author Name">
+        <input type="text" id="bookId" placeholder="Book ID">
+
+        <select id="category">
+            <option value="Programming">Programming</option>
+            <option value="Science">Science</option>
+            <option value="Literature">Literature</option>
+            <option value="History">History</option>
+        </select>
+
+        <button onclick="addBook()">Save Book</button>
+        <button onclick="exportCSV()">Export CSV</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="summary">
+        <p>Total Books: <span id="totalBooks">0</span></p>
+        <p>Issued: <span id="issuedBooks">0</span></p>
+        <p>Available: <span id="availableBooks">0</span></p>
+    </div>
+
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Issued To</th>
+                <th>Issue Date</th>
+                <th>Fine</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="bookList"></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
